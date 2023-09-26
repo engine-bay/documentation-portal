@@ -1,8 +1,8 @@
-namespace EngineBay.ModuleTemplate
+namespace EngineBay.DocumentationPortal
 {
     using EngineBay.Core;
 
-    public class ModuleTemplateModule : IModule
+    public class DocumentationPortalModule : IModule
     {
         /// <inheritdoc/>
         public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
