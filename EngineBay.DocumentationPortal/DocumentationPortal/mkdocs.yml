@@ -1,6 +1,7 @@
 site_name: engine-bay.github.io
 site_description: Documentation for EngineBay
-# site_url: http://localhost:6000/
+repo_url: https://github.com/engine-bay/documentation-portal
+use_directory_urls: false
 extra_css:
   - assets/stylesheets/extra.css
 extra_javascript:
