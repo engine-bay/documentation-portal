@@ -1,0 +1,70 @@
+site_name: engine-bay.github.io
+site_description: Documentation for EngineBay
+# site_url: http://localhost:6000/
+extra_css:
+  - assets/stylesheets/extra.css
+extra_javascript:
+  - assets/javascript/mathjax.js
+  - assets/javascript/refreshOnToggleDarkLight.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+theme:
+  favicon: assets/favicons/favicon.ico
+  logo: assets/logos/android-chrome-512x512.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: !ENV [GOOGLE_ANALYTICS_KEY, 'G-XXXXXXXXXX']
+markdown_extensions:
+  - meta
+  - attr_list
+  - footnotes
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+    - awesome-pages
+    - tags:
+        tags_file: tags.md
+    - search:
+        prebuild_index: true
+        indexing: 'full'
+    - htmlproofer
+    - img2figv2
+    - glightbox
+
