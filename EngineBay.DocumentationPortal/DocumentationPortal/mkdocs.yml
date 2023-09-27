@@ -1,4 +1,4 @@
-site_name: engine-bay.github.io
+site_name: EngineBay
 site_description: Documentation for EngineBay
 repo_url: https://github.com/engine-bay/documentation-portal
 use_directory_urls: false
@@ -37,9 +37,6 @@ theme:
     - search.share
 extra:
   generator: false
-  analytics:
-    provider: google
-    property: !ENV [GOOGLE_ANALYTICS_KEY, 'G-XXXXXXXXXX']
 markdown_extensions:
   - meta
   - attr_list

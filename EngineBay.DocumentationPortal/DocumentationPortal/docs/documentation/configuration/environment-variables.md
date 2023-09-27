@@ -21,6 +21,17 @@ The following environment variables control the database configuration and behav
 | `DATABASE_SEED_DATA_PATH` | `/seed-data` | `string`, `none`  | The directory to be used to look for seed data files. |
 | `DATABASE_AUDITING_ENABLED` | `true` | `true`, `false`, `none` | This will ***DISABLE*** tracking and auditing of changes saved to the database. It is not recommended to disable this unless EngineBay is processing PII data. Disabling auditing can provide a slight performance boost if traceability is not required. |
 
+## Data Protection
+
+The following environment variables control the data protection behavior of EngineBay.
+
+| Environment variable | Default value | Options | Description |
+| :--- | :----: | :----: | ---: |
+| `DATA_PROTECTION_KEY_STORE_PROVIDER` | `FileSystem` | `FileSystem`, `Redis` | The key store provider for data protection encryption keys. Defaults to FileSystem when not set. |
+| `DATA_PROTECTION_NAMESPACE` | `EngineBay DataProtection Key Store` | `string`, `none` | The partitioning namespace for the key store provider for data protection encryption keys. Defaults when not set. |
+| `DATA_PROTECTION_REDIS_CONNECTION_STRING` | `none` | `string`, `none` | Connection string for Redis key store provider. |
+| `DATA_PROTECTION_KEY_LIFETIME_DAYS` | `7` | `number`, `none` | The lifetime of an encryption key before it is rotated internally. |
+
 ## Logging
 
 The following environment variables control logging behavior of EngineBay.
