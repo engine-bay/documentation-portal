@@ -25,6 +25,7 @@ theme:
         name: Switch to light mode
   name: material
   features:
+    - navigation.prune
     - navigation.instant
     - navigation.tabs
     - navigation.tabs.sticky
@@ -32,9 +33,13 @@ theme:
     - navigation.top
     - navigation.expand
     - navigation.indexes
+    - navigation.tracking
+    - navigation.expand
+    - navigation.path
     - search.suggest
     - search.highlight
     - search.share
+    - toc.integrate
 extra:
   generator: false
 markdown_extensions:
@@ -55,14 +60,19 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
 plugins:
     - awesome-pages
     - tags:
         tags_file: tags.md
-    - search:
-        prebuild_index: true
-        indexing: 'full'
+    - search
     - htmlproofer
     - img2figv2
     - glightbox
+    - mermaid2
 

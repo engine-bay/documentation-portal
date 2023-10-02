@@ -16,7 +16,7 @@ The [Database Environment Variables](./environment-variables.md#database) provid
 
 ## Workbook JSON Files
 
-JSON files with the ```*.workbook.json``` extension located in the `/seed-data` directory in EngineBay's container will be validated and inserted into the database on startup.
+JSON files with the ```*.workbooks.json``` extension located in the `/seed-data` directory in EngineBay's container will be validated and inserted into the database on startup.
 
 The `/seed-data` directory is configurable through the environment variable `DATABASE_SEED_DATA_PATH`.
 

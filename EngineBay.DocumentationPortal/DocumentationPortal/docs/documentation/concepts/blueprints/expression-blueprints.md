@@ -1,8 +1,8 @@
 ---
 tags:
   - Blueprints
-  - Expression Blueprint
-  - Expression
+  - Expressions Blueprint
+  - Expressions
 ---
 
 # Expression Blueprints
