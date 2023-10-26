@@ -70,7 +70,7 @@
 
     <Target Name="EnsurePythonEnv" BeforeTargets="Build">
         <!-- Ensure Python is installed -->
-        <Exec Command="python3 --version" ContinueOnError="true">
+        <Exec Command="py --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
         <Error Condition="'$(ErrorCode)' != '0'"
@@ -79,7 +79,7 @@
 
     <Target Name="EnsurePipEnv" BeforeTargets="Build">
         <!-- Ensure Pip is installed -->
-        <Exec Command="pip3 --version" ContinueOnError="true">
+        <Exec Command="pip --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
         <Error Condition="'$(ErrorCode)' != '0'"
