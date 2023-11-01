@@ -72,12 +72,16 @@
         <Exec Command="python --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
-        <Error Condition="'$(ErrorCode)' != '0'" Text="Python is required to build and run this project. To continue, please install Python from https://www.python.org/, and then restart your command prompt or IDE." />
+        <Exec Command="python3 --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode3" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0' AND '$(ErrorCode3)' != '0'"
+            Text="Python is required to build and run this project. To continue, please install Python from https://www.python.org/, and then restart your command prompt or IDE." />
     </Target>
 
     <Target Name="EnsurePipEnv" BeforeTargets="Build">
         <!-- Ensure Pip is installed -->
-        <Exec Command="pip --version" ContinueOnError="true">
+        <Exec Command="pip3 --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
         <Error Condition="'$(ErrorCode)' != '0'" Text="Pip is required to build and run this project. To continue, please install Pip from https://pip.pypa.io/en/stable/installation/, and then restart your command prompt or IDE." />
