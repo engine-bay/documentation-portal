@@ -16,12 +16,11 @@ The following environment variables control the database configuration and behav
 | :--------------------------- | :----: | :----: | :--- |
 | `DATABASE_PROVIDER` | `SQLite` | `InMemory`, `SQLite`, `SqlServer`, `Postgres`| The relational database provider to use. Defaults to SQLite when not set. |
 | `DATABASE_CONNECTION_STRING` | `none` | N/A | The connection string to use for the configured `DATABASE_PROVIDER` |
-| `DATABASE_RESET` | `false` | `true`, `false`, `none`| This will ***RESET*** the database, deleting all tables and re-applying database migrations. This is intended for development and testing activities where a deterministic database state is required. Is always `true` when ``DATABASE_PROVIDER` is set to `InMemory` |
+| `DATABASE_RESET` | `false` | `true`, `false`, `none`| This will ***RESET*** the database, deleting all tables and re-applying database migrations. This is intended for development and testing activities where a deterministic database state is required. Is always `true` when `DATABASE_PROVIDER` is set to `InMemory` |
 | `DATABASE_RESEED` | `false` | `true`, `false`, `none` | This will ***RESEED*** the database with initial data. This is intended for development and testing activities where a deterministic database state is required. |
 | `DATABASE_SEED_DATA_PATH` | `/seed-data` | `string`, `none`  | The directory to be used to look for seed data files. |
 | `DATABASE_EXIT_AFTER_MIGRATIONS` | `false` | `true`, `false`, `none`| Force shutdown after migrations are completed. This is intended for use in simulating database migrations in CI environments. |
 | `DATABASE_EXIT_AFTER_SEEDING` | `false` | `true`, `false`, `none`| Force shutdown after database (re)seeding is are completed. This is intended for use in simulating database migrations in CI environments. Only applies if `DATABASE_RESEED` is `true` |
-| `DATABASE_AUDITING_ENABLED` | `true` | `true`, `false`, `none` | This will ***DISABLE*** tracking and auditing of changes saved to the database. It is not recommended to disable this unless EngineBay is processing PII data. Disabling auditing can provide a slight performance boost if traceability is not required. |
 
 ## Data Protection
 
@@ -68,3 +67,11 @@ The following environment variables control the OpenAPI 3.0 api documentation be
 | Environment variable | Default value | Options | Description |
 | :--------------------------- | :----: | :----: | :--- |
 | `API_DOCUMENTATION_ENABLED` | `false` |  `true`, `false`, `none` | Enables OpenApi 3.0 API documentation on paths `/swagger/v1/swagger.json` and `/swagger/index.html`. |
+
+## Auditing
+
+The following environment variables control the auditing behavior of EngineBay.
+
+| Environment variable | Default value |         Options         | Description                                                                                                                                                                                                                                        |
+|:---------------------|:-------------:|:-----------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AUDITING_ENABLED`   |    `true`     | `true`, `false`, `none` | This can disable tracking and auditing of changes saved to the database. It is not recommended to disable this unless EngineBay is processing PII data. Disabling auditing can provide a slight performance boost if traceability is not required. |
