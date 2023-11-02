@@ -64,7 +64,8 @@
         <Exec Command="node --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
-        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Error Condition="'$(ErrorCode)' != '0'"
+            Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
     </Target>
 
     <Target Name="EnsurePythonEnv" BeforeTargets="Build">
@@ -84,13 +85,16 @@
         <Exec Command="pip3 --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
-        <Error Condition="'$(ErrorCode)' != '0'" Text="Pip is required to build and run this project. To continue, please install Pip from https://pip.pypa.io/en/stable/installation/, and then restart your command prompt or IDE." />
-        <Message Importance="high" Text="Restoring dependencies using 'pip'. This may take several minutes..." />
+        <Error Condition="'$(ErrorCode)' != '0'"
+            Text="Pip is required to build and run this project. To continue, please install Pip from https://pip.pypa.io/en/stable/installation/, and then restart your command prompt or IDE." />
+        <Message Importance="high"
+            Text="Restoring dependencies using 'pip'. This may take several minutes..." />
         <Exec WorkingDirectory="$(SpaRoot)" Command="pip3 install mkdocs" />
         <Exec WorkingDirectory="$(SpaRoot)" Command="pip3 install -r requirements.txt" />
     </Target>
 
-    <Target Name="MKDocsBuild" AfterTargets="Build">
+    <Target Name="MKDocsBuild" AfterTargets="Build"
+        Condition="'$(ASPNETCORE_ENVIRONMENT)' != 'Development'">
         <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --strict" />
     </Target>
 
