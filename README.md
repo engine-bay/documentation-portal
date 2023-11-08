@@ -15,8 +15,18 @@ This is the documentation repository for Engine Bay, it uses [mkdocs](https://gi
 Please ensure that you have the following installed
 
 - [Node](https://nodejs.org/)
+    ```bash
+    node --version
+    ```
 - [Python](https://www.python.org/)
-- [Pip](https://pip.pypa.io/en/stable/installation/)
+    ```bash
+    python --version
+    python3 --version
+    ```
+- [Pip](https://pip.pypa.io/en/stable/installation/). Pip should be installed with Python, check using the following command
+    ```bash
+    pip3 --version
+    ```
 
 ## Usage
 
