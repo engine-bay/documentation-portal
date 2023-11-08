@@ -74,9 +74,9 @@
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
         <Exec Command="python3 --version" ContinueOnError="true">
-            <Output TaskParameter="ExitCode" PropertyName="ErrorCode3" />
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCodePy3" />
         </Exec>
-        <Error Condition="'$(ErrorCode)' != '0' AND '$(ErrorCode3)' != '0'"
+        <Error Condition="'$(ErrorCode)' != '0' AND '$(ErrorCodePy3)' != '0'"
             Text="Python is required to build and run this project. To continue, please install Python from https://www.python.org/, and then restart your command prompt or IDE." />
     </Target>
 
@@ -97,5 +97,8 @@
         Condition="'$(ASPNETCORE_ENVIRONMENT)' != 'Development'">
         <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --strict" />
     </Target>
-
+    <Target Name="MKDocsBuild" AfterTargets="Build"
+        Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'">
+        <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --dirty" />
+    </Target>
 </Project>
