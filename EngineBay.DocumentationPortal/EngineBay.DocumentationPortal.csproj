@@ -92,4 +92,8 @@
         <Exec WorkingDirectory="$(SpaRoot)" Command="pip3 install mkdocs" />
         <Exec WorkingDirectory="$(SpaRoot)" Command="pip3 install -r requirements.txt" />
     </Target>
+
+    <Target Name="MKDocsBuild" AfterTargets="Build">
+        <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --strict" />
+    </Target>
 </Project>
