@@ -93,8 +93,7 @@
         <Exec WorkingDirectory="$(SpaRoot)" Command="pip3 install -r requirements.txt" />
     </Target>
 
-    <Target Name="MKDocsBuild" AfterTargets="Build"
-        Condition="'$(ASPNETCORE_ENVIRONMENT)' != 'Development'">
+    <Target Name="MKDocsBuild" AfterTargets="Build">
         <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --strict" />
     </Target>
 </Project>
