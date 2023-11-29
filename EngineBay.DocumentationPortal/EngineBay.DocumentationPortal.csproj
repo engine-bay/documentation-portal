@@ -18,7 +18,7 @@
         <TargetType>library</TargetType>
         <IsPackable>true</IsPackable>
         <OutputType>Library</OutputType>
-        <SpaRoot>DocumentationPortal\</SpaRoot>
+        <SpaRoot>DocumentationPortal/</SpaRoot>
     </PropertyGroup>
 
     <PropertyGroup>
