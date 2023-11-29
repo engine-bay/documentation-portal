@@ -97,8 +97,4 @@
         Condition="'$(ASPNETCORE_ENVIRONMENT)' != 'Development'">
         <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --strict" />
     </Target>
-    <Target Name="MKDocsBuild" AfterTargets="Build"
-        Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'">
-        <Exec WorkingDirectory="$(SpaRoot)" Command="mkdocs build --dirty" />
-    </Target>
 </Project>
