@@ -15,14 +15,16 @@ namespace EngineBay.DocumentationPortal
                 throw new ArgumentException(nameof(currentAssembly));
             }
 
-            var manifestEmbeddedProvider = new ManifestEmbeddedFileProvider(currentAssembly, "DocumentationPortal/site");
+            var manifestEmbeddedProvider =
+                new ManifestEmbeddedFileProvider(currentAssembly, "DocumentationPortal/site");
 
             app.UseDefaultFiles();
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = manifestEmbeddedProvider,
-                RequestPath = "/documentation-portal",
-            });
+            app.UseStaticFiles(
+                new StaticFileOptions
+                {
+                    FileProvider = manifestEmbeddedProvider,
+                    RequestPath = "/documentation-portal",
+                });
             return app;
         }
     }
