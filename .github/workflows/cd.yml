@@ -1,25 +1,25 @@
 name: Continuous Delivery
 
-on: 
-  push: 
-    tags: 
+on:
+  push:
+    tags:
       - '*'
 
-jobs: 
-  publish: 
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
-      with: 
+      with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Test
       run: dotnet test --no-restore
-        - name: Build
-          run: dotnet build --no-restore -c release
+    - name: Build
+      run: dotnet build --no-restore -c release
     - name: Package
       run: dotnet pack -p:PackageVersion=${{  github.ref_name }} -c release
     - name: Publish
