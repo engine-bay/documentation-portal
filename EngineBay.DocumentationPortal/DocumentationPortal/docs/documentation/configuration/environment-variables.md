@@ -75,3 +75,19 @@ The following environment variables control the auditing behavior of EngineBay.
 | Environment variable | Default value |         Options         | Description                                                                                                                                                                                                                                        |
 |:---------------------|:-------------:|:-----------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AUDITING_ENABLED`   |    `true`     | `true`, `false`, `none` | This can disable tracking and auditing of changes saved to the database. It is not recommended to disable this unless EngineBay is processing PII data. Disabling auditing can provide a slight performance boost if traceability is not required. |
+
+## Rate Limiting
+
+The following environment variables control the rate limiting behavior of EngineBay.
+
+| Environment variable | Default value |         Options         | Description                                                                                                                                                                                                                                        |
+|:---------------------|:-------------:|:-----------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `RATE_LIMITING_AUTO_REPLENISHMENT`   |    `true`     | `true`, `false` |  Specified whether the bucket is automatically refreshed or if TryReplenish will be called manually. Applies to the `token bucket` limit algorithm. |
+| `RATE_LIMITING_PERMIT_LIMIT`   |    `100`     | `number` | Maximum number of allowed requests after which new requests will be queued or blocked. Applies to the `fixed window`, `sliding window`, and `concurrency` limit algorithms. |
+| `RATE_LIMITING_QUEUE_LIMIT`   |    `10`     | `number` | Determines the number of requests that will be queued after the limit has been reached. Applies to the `fixed window`, `sliding window`, `token bucket`, and `concurrency` limit algorithms. |
+| `RATE_LIMITING_QUEUE_PROCESSING_ORDER`   |    `OldestFirst`     | `OldestFirst`, `NewestFirst` | Controls the order in which queued requests will be dequeued and processed. Applies to the `fixed window`, `sliding window`, `token bucket`, and `concurrency` limit algorithms. |
+| `RATE_LIMITING_REPLENISHMENT_PERIOD`   |    `5`     | `number` | Time (in seconds) before tokens will be added to the bucket. Applies to the `token bucket` limit algorithm. |
+| `RATE_LIMITING_SEGMENTS_PER_WINDOW`   |    `5`     | `number` | Specifies the number of segments a window will be divided into. Applies to the `sliding window` limit algorithm. |
+| `RATE_LIMITING_TOKEN_LIMIT`   |    `100`     | `number` | Maximum number of tokens that can be in the bucket at any time. Applies to the `token bucket` limit algorithm. |
+| `RATE_LIMITING_TOKENS_PER_PERIOD`   |    `10`     | `number` | Number of tokens to add to the bucket each period. Applies to the `token bucket` limit algorithm. |
+| `RATE_LIMITING_WINDOW`   |    `60`     | `number` | Time (in seconds) of the window that the limit is applied to before moving on to the next window. Applies to the `fixed window` and `sliding window` limit algorithms. |
