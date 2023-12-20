@@ -37,13 +37,13 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="EngineBay.Core" Version="9.0.0" />
+                <PackageReference Include="EngineBay.Core" Version="9.0.4" />
             </ItemGroup>
         </Otherwise>
     </Choose>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.14" />
+        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.0" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
