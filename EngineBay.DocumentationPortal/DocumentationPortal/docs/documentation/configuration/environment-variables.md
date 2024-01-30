@@ -53,7 +53,7 @@ The following environment variables control the authentication behavior of Engin
 | `AUTHENTICATION_AUDIENCE` | `http://localhost:5050` |  `string`, `none` | The value used for verifying JWT Issuer (iss) claims |
 | `AUTHENTICATION_AUTHORITY` | `none` |  `string`, `none` | The value used for verifying JWT Authority claims |
 | `AUTHENTICATION_ALGORITHM` | `HS256` |  `HS256`, `HS512` | The algorithm used for verifying JWT tokens |
-| `AUTHENTICATION_METHOD` | `JwtBearer` | `JwtBearer`, `Basic`, `None` | The authentication method used. `Basic`, `None` are **not recommended** as these are intended for troubleshooting and testing, not production use.   |
+| `AUTHENTICATION_METHOD` | `JwtBearer` | `JwtBearer`, `Basic`, `Cookies`, `None` | The authentication method used. `Basic`, `None` are **not recommended** as these are intended for troubleshooting and testing, not production use.   |
 | `AUTHENTICATION_VALIDATE_EXPIRY` | `true` |  `true`, `false`, `none` | Enabled JWT Expiry (exp) validation. Disabling this is **not recommended**. |
 | `AUTHENTICATION_VALIDATE_AUDIENCE` | `true` |  `true`, `false`, `none` | Enabled JWT Audience (aud) validation. Disabling this is **not recommended**.|
 | `AUTHENTICATION_VALIDATE_ISSUER` | `true` |  `true`, `false`, `none` | Enabled JWT Issuer (iss) validation. Disabling this is **not recommended**. |
@@ -67,6 +67,8 @@ The following environment variables control the OpenAPI 3.0 api documentation be
 | Environment variable | Default value | Options | Description |
 | :--------------------------- | :----: | :----: | :--- |
 | `API_DOCUMENTATION_ENABLED` | `false` |  `true`, `false`, `none` | Enables OpenApi 3.0 API documentation on paths `/swagger/v1/swagger.json` and `/swagger/index.html`. |
+| `API_DOCUMENTATION_AUTHENTICATION_METHOD` | `JwtBearer` | `JwtBearer`, `Basic`, `Cookies`, `None` | The authentication method used. `Basic`, `None` are **not recommended** as these are intended for troubleshooting and testing, not production use.   |
+
 
 ## Auditing
 
